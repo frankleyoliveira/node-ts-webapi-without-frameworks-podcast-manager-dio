@@ -1,5 +1,4 @@
-import * as http from 'http'
-
+import { IncomingMessage, ServerResponse } from 'http'
 import {
   getListEpisodes,
   getFilterEpisodes,
@@ -9,8 +8,8 @@ import { Routes } from './routes/routes'
 import { HttpMethod } from './utils/http-methods'
 
 export const app = async (
-  request: http.IncomingMessage,
-  response: http.ServerResponse
+  request: IncomingMessage,
+  response: ServerResponse
 ) => {
   const baseUrl = request.url?.split('?')[0]
 
