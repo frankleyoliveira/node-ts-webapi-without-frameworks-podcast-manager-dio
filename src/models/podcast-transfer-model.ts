@@ -1,6 +1,6 @@
-import { PodcastModel } from "./podcast-model";
+import { PodcastModel } from './podcast-model'
 
 export interface PodcastTransferModel {
-  statusCode: number;
-  body: PodcastModel[];
+  statusCode: number
+  body: PodcastModel[]
 }
