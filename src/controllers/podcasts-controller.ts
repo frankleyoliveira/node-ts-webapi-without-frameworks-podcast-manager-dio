@@ -7,7 +7,7 @@ import { ContentType } from '../utils/content-type'
 const defaultContent = { 'Content-Type': ContentType.JSON }
 
 export const getListEpisodes = async (
-  req: IncomingMessage,
+  _: IncomingMessage,
   res: ServerResponse
 ) => {
   const content = await serviceListEpisodes()
