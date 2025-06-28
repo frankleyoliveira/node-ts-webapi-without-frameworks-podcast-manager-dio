@@ -3,7 +3,7 @@ import * as http from 'http'
 import {
   getListEpisodes,
   getFilterEpisodes,
-} from './controllers/podscasts-controller'
+} from './controllers/podcasts-controller'
 
 import { Routes } from './routes/routes'
 import { HttpMethod } from './utils/http-methods'
