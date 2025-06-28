@@ -5,7 +5,6 @@ import {
 } from './controllers/podcasts-controller'
 
 import { Routes } from './routes/routes'
-import { HttpMethod } from './utils/http-methods'
 
 export const app = async (
   request: IncomingMessage,
@@ -13,11 +12,11 @@ export const app = async (
 ) => {
   const baseUrl = request.url?.split('?')[0]
 
-  if (request.method === HttpMethod.GET && baseUrl === Routes.LIST) {
+  if (request.method === 'GET' && baseUrl === Routes.LIST) {
     await getListEpisodes(request, response)
   }
 
-  if (request.method === HttpMethod.GET && baseUrl === Routes.ESPISODE) {
+  if (request.method === 'GET' && baseUrl === Routes.ESPISODE) {
     await getFilterEpisodes(request, response)
   }
 }
