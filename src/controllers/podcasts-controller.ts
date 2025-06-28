@@ -2,9 +2,6 @@ import { IncomingMessage, ServerResponse } from 'http'
 
 import { serviceListEpisodes } from '../services/list-episodes-service'
 import { serviceFilterEpisodes } from '../services/filter-episodes-service'
-import { ContentType } from '../utils/content-type'
-
-const defaultContent = { 'Content-Type': ContentType.JSON }
 
 export const getListEpisodes = async (
   _: IncomingMessage,
@@ -12,7 +9,7 @@ export const getListEpisodes = async (
 ) => {
   const content = await serviceListEpisodes()
 
-  res.writeHead(content.statusCode, defaultContent)
+  res.writeHead(content.statusCode, { 'Content-Type': content.type })
   res.write(JSON.stringify(content.body))
 
   res.end()
@@ -24,7 +21,7 @@ export const getFilterEpisodes = async (
 ) => {
   const content = await serviceFilterEpisodes(req.url)
 
-  res.writeHead(content.statusCode, defaultContent)
+  res.writeHead(content.statusCode, { 'Content-Type': content.type })
   res.write(JSON.stringify(content.body))
 
   res.end()

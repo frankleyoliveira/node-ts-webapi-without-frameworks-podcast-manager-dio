@@ -12,11 +12,14 @@ export const app = async (
 ) => {
   const baseUrl = request.url?.split('?')[0]
 
-  if (request.method === 'GET' && baseUrl === Routes.LIST) {
-    await getListEpisodes(request, response)
-  }
-
-  if (request.method === 'GET' && baseUrl === Routes.ESPISODE) {
-    await getFilterEpisodes(request, response)
+  if (request.method === 'GET') {
+    switch (baseUrl) {
+      case Routes.LIST:
+        await getListEpisodes(request, response)
+        break
+      case Routes.ESPISODE:
+        await getFilterEpisodes(request, response)
+        break
+    }
   }
 }
