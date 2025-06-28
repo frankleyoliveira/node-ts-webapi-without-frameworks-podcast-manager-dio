@@ -6,5 +6,5 @@ const server = createServer(app)
 const port = process.env.PORT
 
 server.listen(port, () => {
-  console.log(`servidor iniciado na porta ${port}`)
+  console.log(`Server started on port ${port}`)
 })
